@@ -11,11 +11,10 @@
  */
 function memcache_status_menu() {
   $items['admin/reports/status/memcache'] = array(
-    'title' => 'Memcache',
-    'page callback' => 'memcache_status_memcache',
-    'access arguments' => array('access memcache status'),
+    'title' => 'Memcache status',
     'type' => MENU_CALLBACK,
-    'file' => 'memcache_status.admin.inc',
+    'description' => 'Report for the current status of Memcache.',
+    'route_name' => 'memcache_status.report',
   );
   return $items;
 }
