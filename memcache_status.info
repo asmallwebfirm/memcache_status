@@ -1,5 +1,6 @@
 name = Memcache Status
 description = Adds Memcache status to the administrative reports.
-core = 7.x
-dependencies[] = libraries
-configure = admin/reports/status/memcache
+core = 6.x
+
+; Optional.
+; dependencies[] = libraries

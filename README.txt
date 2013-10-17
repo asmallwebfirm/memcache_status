@@ -2,10 +2,11 @@ Memcache Status
 ==========
 
 Requirements:
- - Libraries API - http://drupal.org/project/libraries
  - memcache.php - This third-party file is required for APC Status. It may
    already be present on your computer (e.g. in /usr/share/doc/php-apc) or may
    be extracted from the Memcache source (http://pecl.php.net/package/memcache).
+Optional:
+ - Libraries API - http://drupal.org/project/libraries
 
 Installation:
  - Create a directory named "memcache" somewhere Libraries API can find it,

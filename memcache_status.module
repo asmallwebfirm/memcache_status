@@ -1,10 +1,8 @@
 <?php
-
 /**
  * @file
  * Memcache Status module hooks.
  */
-
 
 /**
  * Implements hook_menu().
@@ -14,22 +12,17 @@ function memcache_status_menu() {
     'title' => 'Memcache',
     'page callback' => 'memcache_status_memcache',
     'access arguments' => array('access memcache status'),
-    'type' => MENU_CALLBACK,
+    'type' => MENU_NORMAL_ITEM,
     'file' => 'memcache_status.admin.inc',
   );
   return $items;
 }
 
-
 /**
- * Implements hook_permission().
+ * Implements hook_perm().
  */
-function memcache_status_permission() {
+function memcache_status_perm() {
   return array(
-    'access memcache status' => array(
-      'title' => t('Access Memcache status'),
-      'description' => t('View cache reports and flush memcache servers.'),
-      'restrict access' => TRUE,
-    ),
+    'access memcache status',
   );
 }
