@@ -15,8 +15,14 @@ function memcache_status_memcache() {
     return t('<a href="@clean-url">Clean URLs</a> are required to access the memcache status page.', array('@clean-url' => url('admin/settings/clean-urls')));
   }
 
-  // Locate apc.php.inc.
-  $memcache = libraries_get_path('memcache') . '/memcache.php.inc';
+  // Locate memcache.php.inc, first use the Libraries API if it's installed.
+  if (function_exists('libraries_get_path')) {
+    $memcache = libraries_get_path('memcache') . '/memcache.php.inc';
+  }
+  // If Libraries API is not installed, use a reasonable default path.
+  else {
+    $memcache = 'sites/all/libraries/memcache/memcache.php.inc';
+  }
   if (!is_file($memcache)) {
     $output = t('<code>memcache.php.inc</code> not found.  Please download and extract <a href="@memcache-url">memcache</a>, rename <code>memcache.php</code> to <code>memcache.php.inc</code> and place the file in a directory named <code>memcache</code> that <a href="@libraries-api-url">Libraries API</a> can find (i.e., in <code>sites/all/libraries/memcache</code>).', array('@memcache-url' => "http://pecl.php.net/package/memcache", '@libraries-api-url' => "http://drupal.org/project/libraries"));
     return $output;
